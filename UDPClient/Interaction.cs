@@ -10,7 +10,7 @@ namespace UDPClient
 {
     public class Interaction
     {
-        UdpClient client;
+        //UdpClient client;
         int LOCALPORT = 3333; // порт для приема сообщений
         int REMOTEPORT = 3333; // порт для отправки сообщений
         const int TTL = 20;
@@ -25,8 +25,9 @@ namespace UDPClient
             
             try
             {
-                client = new UdpClient(LOCALPORT);
+                UdpClient client = new UdpClient(LOCALPORT);
                 client.JoinMulticastGroup(groupAddress, TTL);
+                client.Close();
             }
             catch (Exception ex)
             {
@@ -38,9 +39,12 @@ namespace UDPClient
         {
             try
             {
-                client = new UdpClient(REMOTEPORT);
+                UdpClient client = new UdpClient();
+                IPAddress ipaddress = IPAddress.Parse(ip);
+                IPEndPoint ipendpoint = new IPEndPoint(ipaddress, 3333);
                 byte[] arrayData = Encoding.Unicode.GetBytes(message);
-                client.Send(arrayData, arrayData.Length, ip, REMOTEPORT);
+                client.Send(arrayData, arrayData.Length, ipendpoint);
+                client.Close();
             }
             catch (Exception ex)
             {

@@ -240,9 +240,9 @@
             // 
             // drawBallButton
             // 
-            this.drawBallButton.Location = new System.Drawing.Point(397, 334);
+            this.drawBallButton.Location = new System.Drawing.Point(33, 228);
             this.drawBallButton.Name = "drawBallButton";
-            this.drawBallButton.Size = new System.Drawing.Size(170, 23);
+            this.drawBallButton.Size = new System.Drawing.Size(100, 38);
             this.drawBallButton.TabIndex = 19;
             this.drawBallButton.Text = "Draw ball";
             this.drawBallButton.UseVisualStyleBackColor = true;
@@ -250,7 +250,7 @@
             // 
             // numberBallTextBox
             // 
-            this.numberBallTextBox.Location = new System.Drawing.Point(591, 334);
+            this.numberBallTextBox.Location = new System.Drawing.Point(157, 228);
             this.numberBallTextBox.Name = "numberBallTextBox";
             this.numberBallTextBox.Size = new System.Drawing.Size(63, 22);
             this.numberBallTextBox.TabIndex = 20;
@@ -271,17 +271,17 @@
             "red",
             "white",
             "yellow"});
-            this.colorBallComboBox.Location = new System.Drawing.Point(677, 334);
+            this.colorBallComboBox.Location = new System.Drawing.Point(226, 228);
             this.colorBallComboBox.Name = "colorBallComboBox";
-            this.colorBallComboBox.Size = new System.Drawing.Size(121, 24);
+            this.colorBallComboBox.Size = new System.Drawing.Size(93, 24);
             this.colorBallComboBox.TabIndex = 21;
             this.colorBallComboBox.Text = "black";
             // 
             // newGameButton
             // 
-            this.newGameButton.Location = new System.Drawing.Point(397, 363);
+            this.newGameButton.Location = new System.Drawing.Point(33, 173);
             this.newGameButton.Name = "newGameButton";
-            this.newGameButton.Size = new System.Drawing.Size(170, 27);
+            this.newGameButton.Size = new System.Drawing.Size(100, 38);
             this.newGameButton.TabIndex = 22;
             this.newGameButton.Text = "New game";
             this.newGameButton.UseVisualStyleBackColor = true;
@@ -289,9 +289,9 @@
             // 
             // setBackgroundButton
             // 
-            this.setBackgroundButton.Location = new System.Drawing.Point(397, 397);
+            this.setBackgroundButton.Location = new System.Drawing.Point(397, 333);
             this.setBackgroundButton.Name = "setBackgroundButton";
-            this.setBackgroundButton.Size = new System.Drawing.Size(170, 78);
+            this.setBackgroundButton.Size = new System.Drawing.Size(170, 41);
             this.setBackgroundButton.TabIndex = 23;
             this.setBackgroundButton.Text = "Set background";
             this.setBackgroundButton.UseVisualStyleBackColor = true;
@@ -300,15 +300,15 @@
             // backgroundImageList
             // 
             this.backgroundImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.backgroundImageList.ImageSize = new System.Drawing.Size(207, 78);
+            this.backgroundImageList.ImageSize = new System.Drawing.Size(138, 100);
             this.backgroundImageList.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // backGroundButton
             // 
             this.backGroundButton.ImageList = this.backgroundImageList;
-            this.backGroundButton.Location = new System.Drawing.Point(591, 397);
+            this.backGroundButton.Location = new System.Drawing.Point(591, 333);
             this.backGroundButton.Name = "backGroundButton";
-            this.backGroundButton.Size = new System.Drawing.Size(207, 78);
+            this.backGroundButton.Size = new System.Drawing.Size(138, 100);
             this.backGroundButton.TabIndex = 27;
             this.backGroundButton.UseVisualStyleBackColor = true;
             this.backGroundButton.Click += new System.EventHandler(this.BackgroundImageButton);
@@ -321,17 +321,17 @@
             "lotto",
             "spinthewheel",
             "video"});
-            this.gameModeComboBox.Location = new System.Drawing.Point(33, 115);
+            this.gameModeComboBox.Location = new System.Drawing.Point(155, 119);
             this.gameModeComboBox.Name = "gameModeComboBox";
-            this.gameModeComboBox.Size = new System.Drawing.Size(188, 24);
+            this.gameModeComboBox.Size = new System.Drawing.Size(164, 24);
             this.gameModeComboBox.TabIndex = 28;
             this.gameModeComboBox.Text = "keno";
             // 
             // gameModeButton
             // 
-            this.gameModeButton.Location = new System.Drawing.Point(33, 167);
+            this.gameModeButton.Location = new System.Drawing.Point(33, 119);
             this.gameModeButton.Name = "gameModeButton";
-            this.gameModeButton.Size = new System.Drawing.Size(188, 57);
+            this.gameModeButton.Size = new System.Drawing.Size(100, 38);
             this.gameModeButton.TabIndex = 29;
             this.gameModeButton.Text = "Load ";
             this.gameModeButton.UseVisualStyleBackColor = true;
@@ -342,7 +342,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(858, 496);
+            this.ClientSize = new System.Drawing.Size(834, 472);
             this.Controls.Add(this.gameModeButton);
             this.Controls.Add(this.gameModeComboBox);
             this.Controls.Add(this.backGroundButton);
