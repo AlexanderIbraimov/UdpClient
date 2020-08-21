@@ -11,7 +11,6 @@ namespace UDPClient
 {
     public class Interaction
     {
-        UdpClient client;
         int port; 
         string ip;
 
@@ -23,13 +22,13 @@ namespace UDPClient
 
         public void Send(string message)
         {
-            client = new UdpClient();
-            IPEndPoint ipendpoint = new IPEndPoint(IPAddress.Parse(ip), port);
+            IPEndPoint RemoteEndPoint = new IPEndPoint(IPAddress.Parse(ip), port);
+            Socket server = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
 
             try
             {
-                byte[] arrayData = Encoding.Unicode.GetBytes(message);
-                client.Send(arrayData, arrayData.Length, ipendpoint);
+                byte[] data = Encoding.ASCII.GetBytes(message);
+                server.SendTo(data, data.Length, SocketFlags.None, RemoteEndPoint);
             }
             catch (Exception ex)
             {
@@ -37,7 +36,7 @@ namespace UDPClient
             }
             finally
             {
-                client.Close();
+                server.Close();
             }
         }
     }
