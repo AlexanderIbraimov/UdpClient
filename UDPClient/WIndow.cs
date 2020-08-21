@@ -19,8 +19,6 @@ namespace UDPClient
     {
         Dictionary<int, string> dictNameImage;
         Interaction interaction;
-        string ip;
-        int port;
         public Window()
         {
             InitializeComponent();
@@ -40,19 +38,30 @@ namespace UDPClient
             dictNameImage.Add(4, "background_keno.png");
             dictNameImage.Add(5, "background_lucky6.png");
         }
-
         private void SaveButtonClick(object sender, EventArgs e)
         {
-            ip = ipTextBox.Text;
-            if (int.TryParse(portTextBox.Text, out port) && port >= 0 && port <= 65536 && IPAddress.TryParse(ip, out IPAddress host))
+            var ip = ipTextBox.Text;
+            var port = (int)portNumericUpDown.Value;
+            if (IPAddress.TryParse(ip, out IPAddress host))
+            {
                 interaction = new Interaction(ip, port);
+                RemoveElement();
+            }
             else
             {
-                ip = "0.0.0.0";
-                port = 0;
-                ipTextBox.Text = ip;
-                portTextBox.Text = port.ToString();
+                ipTextBox.Text = "127.0.0.1";
+                portNumericUpDown.Value = 3333;
                 MessageBox.Show("IP address or host specified incorrectly");
+            }
+
+        }
+
+        private void RemoveElement()
+        {
+            foreach (var item in this.Controls)
+            {
+                var control = (Control)item;
+                control.Enabled = true;
             }
         }
 
@@ -61,34 +70,49 @@ namespace UDPClient
             SendOrReceiveAnException(Command.GameMode(gameModeComboBox.Text));
             //КОД смены мода
         }
+
         private void TalkingButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.Talking());
+
         private void NewGameButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.NewGame());
+
         private void ClapButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.Clap());
+
         private void CheerButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.Cheer());
+
         private void ShowAvatarButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.ShowAvatar());
+
         private void HideAvatarButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.HideAvatar());
-        private void AvatarPositionButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.AvatarPosition(int.Parse(positionXTextBox.Text), int.Parse(positionYTextBox.Text)));
-        private void AvatarScaleButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.AvatarScale(int.Parse(xTextBox.Text)));
-        private void NumberOfBallsToPickButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.NumberOfBallsToPick(int.Parse(numberOfBallsToPickTextBox.Text)));
-        private void DelayAfterEachBallButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.DelayAfterEachBall(int.Parse(delayAfterEachBallTextBox.Text)));
-        private void DrawBallButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.DrawBall(int.Parse(numberBallTextBox.Text), colorBallComboBox.Text));
+
+        private void AvatarPositionButtonClick(object sender, EventArgs e)
+            => SendOrReceiveAnException(Command.AvatarPosition((int)positionXNumericUpDown.Value, (int)positionYNumericUpDown.Value));
+
+        private void AvatarScaleButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.AvatarScale((int)scaleNumericUpDown.Value));
+
+        private void NumberOfBallsToPickButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.NumberOfBallsToPick((int)numberOfBallsToPickNumericUpDown.Value));
+
+        private void DelayAfterEachBallButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.DelayAfterEachBall((int)delayAfterEachBallNumericUpDown.Value));
+
+        private void DrawBallButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.DrawBall((int)numberBallNumericUpDown.Value, colorBallComboBox.Text));
+
         private void SetBackGroundButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.SetBackground(dictNameImage[backGroundButton.ImageIndex]));
+
+        private void PlayAudioOnceButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.PlayAudioOnce(audioOnceComboBox.Text));
+
+        private void PlayAudioLoopButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.PlayAudioLoop(audioLoopComboBox.Text));
+
         private void BackgroundImageButton(object sender, EventArgs e)
         {
             var button = (Button)sender;
             if (++button.ImageIndex == button.ImageList.Images.Count)
                 button.ImageIndex = 0;
         }
-        private void IsDigitKeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8)
-                e.Handled = true;
-        }
+
         private void IpTextBoxKeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8 && e.KeyChar != 46)
                 e.Handled = true;
         }
+
         private void SendOrReceiveAnException(string command)
         {
             try

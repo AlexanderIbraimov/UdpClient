@@ -1,4 +1,6 @@
-﻿namespace UDPClient
+﻿using System.Windows.Forms;
+
+namespace UDPClient
 {
     partial class Window
     {
@@ -30,26 +32,18 @@
         {
             this.components = new System.ComponentModel.Container();
             this.ipTextBox = new System.Windows.Forms.TextBox();
-            this.portTextBox = new System.Windows.Forms.TextBox();
             this.ipLabel = new System.Windows.Forms.Label();
             this.portLabel = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
             this.talkingButton = new System.Windows.Forms.Button();
-            this.clapButton = new System.Windows.Forms.Button();
             this.cheerButton = new System.Windows.Forms.Button();
             this.showAvatarButton = new System.Windows.Forms.Button();
             this.hideAvatarButton = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.positionXTextBox = new System.Windows.Forms.TextBox();
-            this.positionYTextBox = new System.Windows.Forms.TextBox();
             this.avatarScaleButton = new System.Windows.Forms.Button();
-            this.xTextBox = new System.Windows.Forms.TextBox();
             this.numberOfBallsToPickButton = new System.Windows.Forms.Button();
-            this.numberOfBallsToPickTextBox = new System.Windows.Forms.TextBox();
             this.delayAfterEachBallButton = new System.Windows.Forms.Button();
-            this.delayAfterEachBallTextBox = new System.Windows.Forms.TextBox();
             this.drawBallButton = new System.Windows.Forms.Button();
-            this.numberBallTextBox = new System.Windows.Forms.TextBox();
             this.colorBallComboBox = new System.Windows.Forms.ComboBox();
             this.newGameButton = new System.Windows.Forms.Button();
             this.setBackgroundButton = new System.Windows.Forms.Button();
@@ -57,28 +51,40 @@
             this.backGroundButton = new System.Windows.Forms.Button();
             this.gameModeComboBox = new System.Windows.Forms.ComboBox();
             this.gameModeButton = new System.Windows.Forms.Button();
+            this.clapButton = new System.Windows.Forms.Button();
+            this.portNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.positionXNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.positionYNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.scaleNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.numberOfBallsToPickNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.delayAfterEachBallNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.numberBallNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.playAudioOnceButton = new System.Windows.Forms.Button();
+            this.playAudioLoopButton = new System.Windows.Forms.Button();
+            this.audioOnceComboBox = new System.Windows.Forms.ComboBox();
+            this.audioLoopComboBox = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.portNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.positionXNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.positionYNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scaleNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numberOfBallsToPickNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.delayAfterEachBallNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numberBallNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // ipTextBox
             // 
-            this.ipTextBox.Location = new System.Drawing.Point(121, 26);
+            this.ipTextBox.Location = new System.Drawing.Point(113, 22);
             this.ipTextBox.Name = "ipTextBox";
-            this.ipTextBox.Size = new System.Drawing.Size(100, 22);
+            this.ipTextBox.Size = new System.Drawing.Size(114, 22);
             this.ipTextBox.TabIndex = 0;
+            this.ipTextBox.Text = "127.0.0.1";
             this.ipTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IpTextBoxKeyPress);
-            // 
-            // portTextBox
-            // 
-            this.portTextBox.Location = new System.Drawing.Point(121, 56);
-            this.portTextBox.Name = "portTextBox";
-            this.portTextBox.Size = new System.Drawing.Size(100, 22);
-            this.portTextBox.TabIndex = 1;
-            this.portTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsDigitKeyPress);
             // 
             // ipLabel
             // 
             this.ipLabel.AutoSize = true;
-            this.ipLabel.Location = new System.Drawing.Point(30, 31);
+            this.ipLabel.Location = new System.Drawing.Point(18, 27);
             this.ipLabel.Name = "ipLabel";
             this.ipLabel.Size = new System.Drawing.Size(75, 17);
             this.ipLabel.TabIndex = 2;
@@ -87,7 +93,7 @@
             // portLabel
             // 
             this.portLabel.AutoSize = true;
-            this.portLabel.Location = new System.Drawing.Point(30, 61);
+            this.portLabel.Location = new System.Drawing.Point(27, 75);
             this.portLabel.Name = "portLabel";
             this.portLabel.Size = new System.Drawing.Size(34, 17);
             this.portLabel.TabIndex = 3;
@@ -95,9 +101,9 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(243, 26);
+            this.saveButton.Location = new System.Drawing.Point(242, 63);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(76, 52);
+            this.saveButton.Size = new System.Drawing.Size(106, 28);
             this.saveButton.TabIndex = 4;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
@@ -105,27 +111,19 @@
             // 
             // talkingButton
             // 
-            this.talkingButton.Location = new System.Drawing.Point(397, 26);
+            this.talkingButton.Enabled = false;
+            this.talkingButton.Location = new System.Drawing.Point(556, 12);
             this.talkingButton.Name = "talkingButton";
-            this.talkingButton.Size = new System.Drawing.Size(170, 28);
+            this.talkingButton.Size = new System.Drawing.Size(170, 26);
             this.talkingButton.TabIndex = 5;
             this.talkingButton.Text = "Talking";
             this.talkingButton.UseVisualStyleBackColor = true;
             this.talkingButton.Click += new System.EventHandler(this.TalkingButtonClick);
             // 
-            // clapButton
-            // 
-            this.clapButton.Location = new System.Drawing.Point(397, 61);
-            this.clapButton.Name = "clapButton";
-            this.clapButton.Size = new System.Drawing.Size(170, 28);
-            this.clapButton.TabIndex = 6;
-            this.clapButton.Text = "Clap";
-            this.clapButton.UseVisualStyleBackColor = true;
-            this.clapButton.Click += new System.EventHandler(this.ClapButtonClick);
-            // 
             // cheerButton
             // 
-            this.cheerButton.Location = new System.Drawing.Point(397, 95);
+            this.cheerButton.Enabled = false;
+            this.cheerButton.Location = new System.Drawing.Point(556, 78);
             this.cheerButton.Name = "cheerButton";
             this.cheerButton.Size = new System.Drawing.Size(170, 28);
             this.cheerButton.TabIndex = 7;
@@ -135,9 +133,9 @@
             // 
             // showAvatarButton
             // 
-            this.showAvatarButton.Location = new System.Drawing.Point(397, 129);
+            this.showAvatarButton.Location = new System.Drawing.Point(374, 21);
             this.showAvatarButton.Name = "showAvatarButton";
-            this.showAvatarButton.Size = new System.Drawing.Size(170, 28);
+            this.showAvatarButton.Size = new System.Drawing.Size(156, 28);
             this.showAvatarButton.TabIndex = 8;
             this.showAvatarButton.Text = "Show Avatar";
             this.showAvatarButton.UseVisualStyleBackColor = true;
@@ -145,9 +143,9 @@
             // 
             // hideAvatarButton
             // 
-            this.hideAvatarButton.Location = new System.Drawing.Point(397, 163);
+            this.hideAvatarButton.Location = new System.Drawing.Point(374, 69);
             this.hideAvatarButton.Name = "hideAvatarButton";
-            this.hideAvatarButton.Size = new System.Drawing.Size(170, 28);
+            this.hideAvatarButton.Size = new System.Drawing.Size(156, 28);
             this.hideAvatarButton.TabIndex = 9;
             this.hideAvatarButton.Text = "Hide Avatar";
             this.hideAvatarButton.UseVisualStyleBackColor = true;
@@ -155,7 +153,8 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(397, 197);
+            this.button5.Enabled = false;
+            this.button5.Location = new System.Drawing.Point(556, 112);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(170, 27);
             this.button5.TabIndex = 10;
@@ -163,27 +162,10 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.AvatarPositionButtonClick);
             // 
-            // positionXTextBox
-            // 
-            this.positionXTextBox.Location = new System.Drawing.Point(591, 202);
-            this.positionXTextBox.Name = "positionXTextBox";
-            this.positionXTextBox.Size = new System.Drawing.Size(63, 22);
-            this.positionXTextBox.TabIndex = 11;
-            this.positionXTextBox.Text = "1920";
-            this.positionXTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsDigitKeyPress);
-            // 
-            // positionYTextBox
-            // 
-            this.positionYTextBox.Location = new System.Drawing.Point(666, 202);
-            this.positionYTextBox.Name = "positionYTextBox";
-            this.positionYTextBox.Size = new System.Drawing.Size(63, 22);
-            this.positionYTextBox.TabIndex = 12;
-            this.positionYTextBox.Text = "1080";
-            this.positionYTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsDigitKeyPress);
-            // 
             // avatarScaleButton
             // 
-            this.avatarScaleButton.Location = new System.Drawing.Point(397, 230);
+            this.avatarScaleButton.Enabled = false;
+            this.avatarScaleButton.Location = new System.Drawing.Point(556, 175);
             this.avatarScaleButton.Name = "avatarScaleButton";
             this.avatarScaleButton.Size = new System.Drawing.Size(170, 28);
             this.avatarScaleButton.TabIndex = 13;
@@ -191,56 +173,32 @@
             this.avatarScaleButton.UseVisualStyleBackColor = true;
             this.avatarScaleButton.Click += new System.EventHandler(this.AvatarScaleButtonClick);
             // 
-            // xTextBox
-            // 
-            this.xTextBox.Location = new System.Drawing.Point(591, 236);
-            this.xTextBox.Name = "xTextBox";
-            this.xTextBox.Size = new System.Drawing.Size(63, 22);
-            this.xTextBox.TabIndex = 14;
-            this.xTextBox.Text = "5";
-            this.xTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsDigitKeyPress);
-            // 
             // numberOfBallsToPickButton
             // 
-            this.numberOfBallsToPickButton.Location = new System.Drawing.Point(397, 264);
+            this.numberOfBallsToPickButton.Enabled = false;
+            this.numberOfBallsToPickButton.Location = new System.Drawing.Point(556, 374);
             this.numberOfBallsToPickButton.Name = "numberOfBallsToPickButton";
-            this.numberOfBallsToPickButton.Size = new System.Drawing.Size(170, 28);
+            this.numberOfBallsToPickButton.Size = new System.Drawing.Size(192, 28);
             this.numberOfBallsToPickButton.TabIndex = 15;
             this.numberOfBallsToPickButton.Text = "Number of balls to pick";
             this.numberOfBallsToPickButton.UseVisualStyleBackColor = true;
             this.numberOfBallsToPickButton.Click += new System.EventHandler(this.NumberOfBallsToPickButtonClick);
             // 
-            // numberOfBallsToPickTextBox
-            // 
-            this.numberOfBallsToPickTextBox.Location = new System.Drawing.Point(591, 269);
-            this.numberOfBallsToPickTextBox.Name = "numberOfBallsToPickTextBox";
-            this.numberOfBallsToPickTextBox.Size = new System.Drawing.Size(63, 22);
-            this.numberOfBallsToPickTextBox.TabIndex = 16;
-            this.numberOfBallsToPickTextBox.Text = "5";
-            this.numberOfBallsToPickTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsDigitKeyPress);
-            // 
             // delayAfterEachBallButton
             // 
-            this.delayAfterEachBallButton.Location = new System.Drawing.Point(397, 299);
+            this.delayAfterEachBallButton.Enabled = false;
+            this.delayAfterEachBallButton.Location = new System.Drawing.Point(556, 414);
             this.delayAfterEachBallButton.Name = "delayAfterEachBallButton";
-            this.delayAfterEachBallButton.Size = new System.Drawing.Size(170, 28);
+            this.delayAfterEachBallButton.Size = new System.Drawing.Size(192, 28);
             this.delayAfterEachBallButton.TabIndex = 17;
             this.delayAfterEachBallButton.Text = "Delay after each ball";
             this.delayAfterEachBallButton.UseVisualStyleBackColor = true;
             this.delayAfterEachBallButton.Click += new System.EventHandler(this.DelayAfterEachBallButtonClick);
             // 
-            // delayAfterEachBallTextBox
-            // 
-            this.delayAfterEachBallTextBox.Location = new System.Drawing.Point(591, 304);
-            this.delayAfterEachBallTextBox.Name = "delayAfterEachBallTextBox";
-            this.delayAfterEachBallTextBox.Size = new System.Drawing.Size(63, 22);
-            this.delayAfterEachBallTextBox.TabIndex = 18;
-            this.delayAfterEachBallTextBox.Text = "3";
-            this.delayAfterEachBallTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsDigitKeyPress);
-            // 
             // drawBallButton
             // 
-            this.drawBallButton.Location = new System.Drawing.Point(33, 228);
+            this.drawBallButton.Enabled = false;
+            this.drawBallButton.Location = new System.Drawing.Point(556, 318);
             this.drawBallButton.Name = "drawBallButton";
             this.drawBallButton.Size = new System.Drawing.Size(100, 38);
             this.drawBallButton.TabIndex = 19;
@@ -248,17 +206,9 @@
             this.drawBallButton.UseVisualStyleBackColor = true;
             this.drawBallButton.Click += new System.EventHandler(this.DrawBallButtonClick);
             // 
-            // numberBallTextBox
-            // 
-            this.numberBallTextBox.Location = new System.Drawing.Point(157, 228);
-            this.numberBallTextBox.Name = "numberBallTextBox";
-            this.numberBallTextBox.Size = new System.Drawing.Size(63, 22);
-            this.numberBallTextBox.TabIndex = 20;
-            this.numberBallTextBox.Text = "1";
-            this.numberBallTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsDigitKeyPress);
-            // 
             // colorBallComboBox
             // 
+            this.colorBallComboBox.Enabled = false;
             this.colorBallComboBox.FormattingEnabled = true;
             this.colorBallComboBox.Items.AddRange(new object[] {
             "black",
@@ -271,15 +221,16 @@
             "red",
             "white",
             "yellow"});
-            this.colorBallComboBox.Location = new System.Drawing.Point(226, 228);
+            this.colorBallComboBox.Location = new System.Drawing.Point(771, 318);
             this.colorBallComboBox.Name = "colorBallComboBox";
-            this.colorBallComboBox.Size = new System.Drawing.Size(93, 24);
+            this.colorBallComboBox.Size = new System.Drawing.Size(106, 24);
             this.colorBallComboBox.TabIndex = 21;
             this.colorBallComboBox.Text = "black";
             // 
             // newGameButton
             // 
-            this.newGameButton.Location = new System.Drawing.Point(33, 173);
+            this.newGameButton.Enabled = false;
+            this.newGameButton.Location = new System.Drawing.Point(556, 268);
             this.newGameButton.Name = "newGameButton";
             this.newGameButton.Size = new System.Drawing.Size(100, 38);
             this.newGameButton.TabIndex = 22;
@@ -289,9 +240,10 @@
             // 
             // setBackgroundButton
             // 
-            this.setBackgroundButton.Location = new System.Drawing.Point(397, 333);
+            this.setBackgroundButton.Enabled = false;
+            this.setBackgroundButton.Location = new System.Drawing.Point(30, 268);
             this.setBackgroundButton.Name = "setBackgroundButton";
-            this.setBackgroundButton.Size = new System.Drawing.Size(170, 41);
+            this.setBackgroundButton.Size = new System.Drawing.Size(170, 32);
             this.setBackgroundButton.TabIndex = 23;
             this.setBackgroundButton.Text = "Set background";
             this.setBackgroundButton.UseVisualStyleBackColor = true;
@@ -305,74 +257,254 @@
             // 
             // backGroundButton
             // 
+            this.backGroundButton.Enabled = false;
             this.backGroundButton.ImageList = this.backgroundImageList;
-            this.backGroundButton.Location = new System.Drawing.Point(591, 333);
+            this.backGroundButton.Location = new System.Drawing.Point(230, 268);
             this.backGroundButton.Name = "backGroundButton";
-            this.backGroundButton.Size = new System.Drawing.Size(138, 100);
+            this.backGroundButton.Size = new System.Drawing.Size(170, 125);
             this.backGroundButton.TabIndex = 27;
             this.backGroundButton.UseVisualStyleBackColor = true;
             this.backGroundButton.Click += new System.EventHandler(this.BackgroundImageButton);
             // 
             // gameModeComboBox
             // 
+            this.gameModeComboBox.Enabled = false;
             this.gameModeComboBox.FormattingEnabled = true;
             this.gameModeComboBox.Items.AddRange(new object[] {
             "keno",
             "lotto",
             "spinthewheel",
             "video"});
-            this.gameModeComboBox.Location = new System.Drawing.Point(155, 119);
+            this.gameModeComboBox.Location = new System.Drawing.Point(230, 145);
             this.gameModeComboBox.Name = "gameModeComboBox";
-            this.gameModeComboBox.Size = new System.Drawing.Size(164, 24);
+            this.gameModeComboBox.Size = new System.Drawing.Size(170, 24);
             this.gameModeComboBox.TabIndex = 28;
             this.gameModeComboBox.Text = "keno";
             // 
             // gameModeButton
             // 
-            this.gameModeButton.Location = new System.Drawing.Point(33, 119);
+            this.gameModeButton.Enabled = false;
+            this.gameModeButton.Location = new System.Drawing.Point(30, 145);
             this.gameModeButton.Name = "gameModeButton";
-            this.gameModeButton.Size = new System.Drawing.Size(100, 38);
+            this.gameModeButton.Size = new System.Drawing.Size(170, 38);
             this.gameModeButton.TabIndex = 29;
             this.gameModeButton.Text = "Load ";
             this.gameModeButton.UseVisualStyleBackColor = true;
             this.gameModeButton.Click += new System.EventHandler(this.GameModeButtonClick);
+            // 
+            // clapButton
+            // 
+            this.clapButton.Enabled = false;
+            this.clapButton.Location = new System.Drawing.Point(556, 44);
+            this.clapButton.Name = "clapButton";
+            this.clapButton.Size = new System.Drawing.Size(170, 28);
+            this.clapButton.TabIndex = 6;
+            this.clapButton.Text = "Clap";
+            this.clapButton.UseVisualStyleBackColor = true;
+            this.clapButton.Click += new System.EventHandler(this.ClapButtonClick);
+            // 
+            // portNumericUpDown
+            // 
+            this.portNumericUpDown.Location = new System.Drawing.Point(113, 67);
+            this.portNumericUpDown.Maximum = new decimal(new int[] {
+            65536,
+            0,
+            0,
+            0});
+            this.portNumericUpDown.Name = "portNumericUpDown";
+            this.portNumericUpDown.Size = new System.Drawing.Size(114, 22);
+            this.portNumericUpDown.TabIndex = 30;
+            this.portNumericUpDown.Value = new decimal(new int[] {
+            3333,
+            0,
+            0,
+            0});
+            // 
+            // positionXNumericUpDown
+            // 
+            this.positionXNumericUpDown.Enabled = false;
+            this.positionXNumericUpDown.Location = new System.Drawing.Point(556, 147);
+            this.positionXNumericUpDown.Maximum = new decimal(new int[] {
+            1920,
+            0,
+            0,
+            0});
+            this.positionXNumericUpDown.Name = "positionXNumericUpDown";
+            this.positionXNumericUpDown.Size = new System.Drawing.Size(71, 22);
+            this.positionXNumericUpDown.TabIndex = 31;
+            // 
+            // positionYNumericUpDown
+            // 
+            this.positionYNumericUpDown.Enabled = false;
+            this.positionYNumericUpDown.Location = new System.Drawing.Point(644, 147);
+            this.positionYNumericUpDown.Maximum = new decimal(new int[] {
+            1080,
+            0,
+            0,
+            0});
+            this.positionYNumericUpDown.Name = "positionYNumericUpDown";
+            this.positionYNumericUpDown.Size = new System.Drawing.Size(82, 22);
+            this.positionYNumericUpDown.TabIndex = 32;
+            // 
+            // scaleNumericUpDown
+            // 
+            this.scaleNumericUpDown.Enabled = false;
+            this.scaleNumericUpDown.Location = new System.Drawing.Point(556, 209);
+            this.scaleNumericUpDown.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.scaleNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.scaleNumericUpDown.Name = "scaleNumericUpDown";
+            this.scaleNumericUpDown.Size = new System.Drawing.Size(170, 22);
+            this.scaleNumericUpDown.TabIndex = 33;
+            this.scaleNumericUpDown.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // numberOfBallsToPickNumericUpDown
+            // 
+            this.numberOfBallsToPickNumericUpDown.Enabled = false;
+            this.numberOfBallsToPickNumericUpDown.Location = new System.Drawing.Point(771, 374);
+            this.numberOfBallsToPickNumericUpDown.Name = "numberOfBallsToPickNumericUpDown";
+            this.numberOfBallsToPickNumericUpDown.Size = new System.Drawing.Size(106, 22);
+            this.numberOfBallsToPickNumericUpDown.TabIndex = 34;
+            this.numberOfBallsToPickNumericUpDown.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // delayAfterEachBallNumericUpDown
+            // 
+            this.delayAfterEachBallNumericUpDown.Enabled = false;
+            this.delayAfterEachBallNumericUpDown.Location = new System.Drawing.Point(771, 414);
+            this.delayAfterEachBallNumericUpDown.Name = "delayAfterEachBallNumericUpDown";
+            this.delayAfterEachBallNumericUpDown.Size = new System.Drawing.Size(106, 22);
+            this.delayAfterEachBallNumericUpDown.TabIndex = 35;
+            this.delayAfterEachBallNumericUpDown.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            // 
+            // numberBallNumericUpDown
+            // 
+            this.numberBallNumericUpDown.Enabled = false;
+            this.numberBallNumericUpDown.Location = new System.Drawing.Point(669, 318);
+            this.numberBallNumericUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.numberBallNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numberBallNumericUpDown.Name = "numberBallNumericUpDown";
+            this.numberBallNumericUpDown.Size = new System.Drawing.Size(79, 22);
+            this.numberBallNumericUpDown.TabIndex = 36;
+            this.numberBallNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // playAudioOnceButton
+            // 
+            this.playAudioOnceButton.Location = new System.Drawing.Point(30, 189);
+            this.playAudioOnceButton.Name = "playAudioOnceButton";
+            this.playAudioOnceButton.Size = new System.Drawing.Size(170, 34);
+            this.playAudioOnceButton.TabIndex = 37;
+            this.playAudioOnceButton.Text = "Play audio once";
+            this.playAudioOnceButton.UseVisualStyleBackColor = true;
+            this.playAudioOnceButton.Click += new System.EventHandler(this.PlayAudioOnceButtonClick);
+            // 
+            // playAudioLoopButton
+            // 
+            this.playAudioLoopButton.Location = new System.Drawing.Point(30, 229);
+            this.playAudioLoopButton.Name = "playAudioLoopButton";
+            this.playAudioLoopButton.Size = new System.Drawing.Size(170, 33);
+            this.playAudioLoopButton.TabIndex = 38;
+            this.playAudioLoopButton.Text = "Play audio loop";
+            this.playAudioLoopButton.UseVisualStyleBackColor = true;
+            this.playAudioLoopButton.Click += new System.EventHandler(this.PlayAudioLoopButtonClick);
+            // 
+            // audioOnceComboBox
+            // 
+            this.audioOnceComboBox.FormattingEnabled = true;
+            this.audioOnceComboBox.Location = new System.Drawing.Point(230, 189);
+            this.audioOnceComboBox.Name = "audioOnceComboBox";
+            this.audioOnceComboBox.Size = new System.Drawing.Size(170, 24);
+            this.audioOnceComboBox.TabIndex = 39;
+            this.audioOnceComboBox.Text = "1.mp3";
+            // 
+            // audioLoopComboBox
+            // 
+            this.audioLoopComboBox.FormattingEnabled = true;
+            this.audioLoopComboBox.Location = new System.Drawing.Point(230, 229);
+            this.audioLoopComboBox.Name = "audioLoopComboBox";
+            this.audioLoopComboBox.Size = new System.Drawing.Size(170, 24);
+            this.audioLoopComboBox.TabIndex = 40;
+            this.audioLoopComboBox.Text = "1.mp3";
             // 
             // Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(767, 463);
-            this.Controls.Add(this.gameModeButton);
-            this.Controls.Add(this.gameModeComboBox);
-            this.Controls.Add(this.backGroundButton);
-            this.Controls.Add(this.setBackgroundButton);
-            this.Controls.Add(this.newGameButton);
-            this.Controls.Add(this.colorBallComboBox);
-            this.Controls.Add(this.numberBallTextBox);
+            this.ClientSize = new System.Drawing.Size(962, 517);
+            this.Controls.Add(this.audioLoopComboBox);
+            this.Controls.Add(this.audioOnceComboBox);
+            this.Controls.Add(this.playAudioLoopButton);
+            this.Controls.Add(this.playAudioOnceButton);
+            this.Controls.Add(this.numberBallNumericUpDown);
+            this.Controls.Add(this.delayAfterEachBallNumericUpDown);
+            this.Controls.Add(this.numberOfBallsToPickNumericUpDown);
+            this.Controls.Add(this.scaleNumericUpDown);
+            this.Controls.Add(this.positionYNumericUpDown);
+            this.Controls.Add(this.positionXNumericUpDown);
+            this.Controls.Add(this.portNumericUpDown);
             this.Controls.Add(this.drawBallButton);
-            this.Controls.Add(this.delayAfterEachBallTextBox);
-            this.Controls.Add(this.delayAfterEachBallButton);
-            this.Controls.Add(this.numberOfBallsToPickTextBox);
-            this.Controls.Add(this.numberOfBallsToPickButton);
-            this.Controls.Add(this.xTextBox);
-            this.Controls.Add(this.avatarScaleButton);
-            this.Controls.Add(this.positionYTextBox);
-            this.Controls.Add(this.positionXTextBox);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.colorBallComboBox);
+            this.Controls.Add(this.newGameButton);
+            this.Controls.Add(this.gameModeComboBox);
+            this.Controls.Add(this.gameModeButton);
             this.Controls.Add(this.hideAvatarButton);
             this.Controls.Add(this.showAvatarButton);
+            this.Controls.Add(this.saveButton);
+            this.Controls.Add(this.ipTextBox);
+            this.Controls.Add(this.ipLabel);
+            this.Controls.Add(this.backGroundButton);
+            this.Controls.Add(this.portLabel);
+            this.Controls.Add(this.setBackgroundButton);
+            this.Controls.Add(this.delayAfterEachBallButton);
+            this.Controls.Add(this.numberOfBallsToPickButton);
+            this.Controls.Add(this.avatarScaleButton);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.cheerButton);
             this.Controls.Add(this.clapButton);
             this.Controls.Add(this.talkingButton);
-            this.Controls.Add(this.saveButton);
-            this.Controls.Add(this.portLabel);
-            this.Controls.Add(this.ipLabel);
-            this.Controls.Add(this.portTextBox);
-            this.Controls.Add(this.ipTextBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "Window";
             this.Text = "WIndow";
+            ((System.ComponentModel.ISupportInitialize)(this.portNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.positionXNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.positionYNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scaleNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numberOfBallsToPickNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.delayAfterEachBallNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numberBallNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -380,33 +512,37 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox ipTextBox;
-        private System.Windows.Forms.TextBox portTextBox;
-        private System.Windows.Forms.Label ipLabel;
-        private System.Windows.Forms.Label portLabel;
-        private System.Windows.Forms.Button saveButton;
-        private System.Windows.Forms.Button talkingButton;
-        private System.Windows.Forms.Button clapButton;
-        private System.Windows.Forms.Button cheerButton;
-        private System.Windows.Forms.Button showAvatarButton;
-        private System.Windows.Forms.Button hideAvatarButton;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox positionXTextBox;
-        private System.Windows.Forms.TextBox positionYTextBox;
-        private System.Windows.Forms.Button avatarScaleButton;
-        private System.Windows.Forms.TextBox xTextBox;
-        private System.Windows.Forms.Button numberOfBallsToPickButton;
-        private System.Windows.Forms.TextBox numberOfBallsToPickTextBox;
-        private System.Windows.Forms.Button delayAfterEachBallButton;
-        private System.Windows.Forms.TextBox delayAfterEachBallTextBox;
-        private System.Windows.Forms.Button drawBallButton;
-        private System.Windows.Forms.TextBox numberBallTextBox;
-        private System.Windows.Forms.ComboBox colorBallComboBox;
-        private System.Windows.Forms.Button newGameButton;
-        private System.Windows.Forms.Button setBackgroundButton;
-        private System.Windows.Forms.ImageList backgroundImageList;
-        private System.Windows.Forms.Button backGroundButton;
-        private System.Windows.Forms.ComboBox gameModeComboBox;
-        private System.Windows.Forms.Button gameModeButton;
+        private TextBox ipTextBox;
+        private Label ipLabel;
+        private Label portLabel;
+        private Button saveButton;
+        private Button talkingButton;
+        private Button cheerButton;
+        private Button showAvatarButton;
+        private Button hideAvatarButton;
+        private Button button5;
+        private Button avatarScaleButton;
+        private Button numberOfBallsToPickButton;
+        private Button delayAfterEachBallButton;
+        private Button drawBallButton;
+        private ComboBox colorBallComboBox;
+        private Button newGameButton;
+        private Button setBackgroundButton;
+        private ImageList backgroundImageList;
+        private Button backGroundButton;
+        private ComboBox gameModeComboBox;
+        private Button gameModeButton;
+        private Button clapButton;
+        private NumericUpDown portNumericUpDown;
+        private NumericUpDown positionXNumericUpDown;
+        private NumericUpDown positionYNumericUpDown;
+        private NumericUpDown scaleNumericUpDown;
+        private NumericUpDown numberOfBallsToPickNumericUpDown;
+        private NumericUpDown delayAfterEachBallNumericUpDown;
+        private NumericUpDown numberBallNumericUpDown;
+        private Button playAudioOnceButton;
+        private Button playAudioLoopButton;
+        private ComboBox audioOnceComboBox;
+        private ComboBox audioLoopComboBox;
     }
 }

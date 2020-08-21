@@ -24,7 +24,6 @@ namespace UDPClient
         {
             IPEndPoint RemoteEndPoint = new IPEndPoint(IPAddress.Parse(ip), port);
             Socket server = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-
             try
             {
                 byte[] data = Encoding.ASCII.GetBytes(message);
