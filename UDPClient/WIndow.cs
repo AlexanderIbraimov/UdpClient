@@ -4,8 +4,10 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UDPClient.Model;
@@ -22,7 +24,7 @@ namespace UDPClient
         public Window()
         {
             InitializeComponent();
-            interaction = new Interaction();
+
             dictNameImage = new Dictionary<int, string>();
             backgroundImageList.Images.Add(Resources.background1);
             backgroundImageList.Images.Add(Resources.background2);
@@ -39,17 +41,18 @@ namespace UDPClient
             dictNameImage.Add(5, "background_lucky6.png");
         }
 
-        private void ConnectButtonClick(object sender, EventArgs e)
+        private void SaveButtonClick(object sender, EventArgs e)
         {
             ip = ipTextBox.Text;
-            port = int.Parse(portTextBox.Text);
-            try
+            if (int.TryParse(portTextBox.Text, out port) && port >= 0 && port <= 65536 && IPAddress.TryParse(ip, out IPAddress host))
+                interaction = new Interaction(ip, port);
+            else
             {
-                interaction.Connect(ip, port);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                ip = "0.0.0.0";
+                port = 0;
+                ipTextBox.Text = ip;
+                portTextBox.Text = port.ToString();
+                MessageBox.Show("IP address or host specified incorrectly");
             }
         }
 

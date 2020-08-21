@@ -33,7 +33,7 @@
             this.portTextBox = new System.Windows.Forms.TextBox();
             this.ipLabel = new System.Windows.Forms.Label();
             this.portLabel = new System.Windows.Forms.Label();
-            this.connectButton = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
             this.talkingButton = new System.Windows.Forms.Button();
             this.clapButton = new System.Windows.Forms.Button();
             this.cheerButton = new System.Windows.Forms.Button();
@@ -93,15 +93,15 @@
             this.portLabel.TabIndex = 3;
             this.portLabel.Text = "Port";
             // 
-            // connectButton
+            // saveButton
             // 
-            this.connectButton.Location = new System.Drawing.Point(243, 26);
-            this.connectButton.Name = "connectButton";
-            this.connectButton.Size = new System.Drawing.Size(76, 52);
-            this.connectButton.TabIndex = 4;
-            this.connectButton.Text = "Сonnect";
-            this.connectButton.UseVisualStyleBackColor = true;
-            this.connectButton.Click += new System.EventHandler(this.ConnectButtonClick);
+            this.saveButton.Location = new System.Drawing.Point(243, 26);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(76, 52);
+            this.saveButton.TabIndex = 4;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.SaveButtonClick);
             // 
             // talkingButton
             // 
@@ -342,7 +342,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(834, 472);
+            this.ClientSize = new System.Drawing.Size(767, 463);
             this.Controls.Add(this.gameModeButton);
             this.Controls.Add(this.gameModeComboBox);
             this.Controls.Add(this.backGroundButton);
@@ -365,7 +365,7 @@
             this.Controls.Add(this.cheerButton);
             this.Controls.Add(this.clapButton);
             this.Controls.Add(this.talkingButton);
-            this.Controls.Add(this.connectButton);
+            this.Controls.Add(this.saveButton);
             this.Controls.Add(this.portLabel);
             this.Controls.Add(this.ipLabel);
             this.Controls.Add(this.portTextBox);
@@ -384,7 +384,7 @@
         private System.Windows.Forms.TextBox portTextBox;
         private System.Windows.Forms.Label ipLabel;
         private System.Windows.Forms.Label portLabel;
-        private System.Windows.Forms.Button connectButton;
+        private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button talkingButton;
         private System.Windows.Forms.Button clapButton;
         private System.Windows.Forms.Button cheerButton;
