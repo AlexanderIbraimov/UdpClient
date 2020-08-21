@@ -61,9 +61,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interaction.cs" />
+    <Compile Include="Model\Interaction.cs" />
     <Compile Include="Model\Command.cs" />
-    <Compile Include="Model\GameMode.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WIndow.cs">

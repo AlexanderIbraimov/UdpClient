@@ -22,7 +22,8 @@ namespace UDPClient
         public Window()
         {
             InitializeComponent();
-
+            Controls.Remove(tableLayoutPanel3);
+            Controls.Remove(tableLayoutPanel4);
             dictNameImage = new Dictionary<int, string>();
             backgroundImageList.Images.Add(Resources.background1);
             backgroundImageList.Images.Add(Resources.background2);
@@ -45,7 +46,11 @@ namespace UDPClient
             if (IPAddress.TryParse(ip, out IPAddress host))
             {
                 interaction = new Interaction(ip, port);
-                RemoveElement();
+                Controls.Add(tableLayoutPanel3);
+                Controls.Add(tableLayoutPanel4);
+                EnabledElement(Controls);
+                Controls.Remove(tableLayoutPanel3);
+                Controls.Remove(tableLayoutPanel4);
             }
             else
             {
@@ -55,20 +60,36 @@ namespace UDPClient
             }
 
         }
-
-        private void RemoveElement()
+        private void EnabledElement(Control.ControlCollection cc)
         {
-            foreach (var item in this.Controls)
+            foreach (var item in cc)
             {
                 var control = (Control)item;
                 control.Enabled = true;
+                if (control.Controls.Count > 0)
+                    EnabledElement(control.Controls);
             }
+            hideAvatarButton.Enabled = false;
         }
-
         private void GameModeButtonClick(object sender, EventArgs e)
         {
-            SendOrReceiveAnException(Command.GameMode(gameModeComboBox.Text));
-            //КОД смены мода
+            SendOrReceiveAnException(Command.GameMode(loadComboBox.Text));
+            switch (loadComboBox.Text)
+            {
+                case "keno":
+                    Controls.Remove(tableLayoutPanel3);
+                    Controls.Add(tableLayoutPanel1);
+                    break;
+                case "lotto":
+                    Controls.Remove(tableLayoutPanel3);
+                    Controls.Add(tableLayoutPanel1);
+                    break;
+                case "spinthewheel":
+                    Controls.Remove(tableLayoutPanel1);
+                    Controls.Add(tableLayoutPanel3);
+                    break;
+                default: break;
+            }
         }
 
         private void TalkingButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.Talking());
@@ -79,12 +100,23 @@ namespace UDPClient
 
         private void CheerButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.Cheer());
 
-        private void ShowAvatarButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.ShowAvatar());
+        private void ShowAvatarButtonClick(object sender, EventArgs e)
+        {
+            SendOrReceiveAnException(Command.ShowAvatar());
+            Controls.Add(tableLayoutPanel4);
+            showAvatarButton.Enabled = false;
+            hideAvatarButton.Enabled = true;
+        }
 
-        private void HideAvatarButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.HideAvatar());
+        private void HideAvatarButtonClick(object sender, EventArgs e)
+        {
+            SendOrReceiveAnException(Command.HideAvatar());
+            Controls.Remove(tableLayoutPanel4);
+            showAvatarButton.Enabled = true;
+            hideAvatarButton.Enabled = false;
+        }
 
-        private void AvatarPositionButtonClick(object sender, EventArgs e)
-            => SendOrReceiveAnException(Command.AvatarPosition((int)positionXNumericUpDown.Value, (int)positionYNumericUpDown.Value));
+        private void AvatarPositionButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.AvatarPosition((int)positionXNumericUpDown.Value, (int)positionYNumericUpDown.Value));
 
         private void AvatarScaleButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.AvatarScale((int)scaleNumericUpDown.Value));
 
@@ -100,6 +132,20 @@ namespace UDPClient
 
         private void PlayAudioLoopButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.PlayAudioLoop(audioLoopComboBox.Text));
 
+        private void ZoomToModelButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.ZoomToModel());
+
+        private void ZoomToScreenButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.ZoomToScreen());
+
+        private void TwoWheelsButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.Mode(1));
+
+        private void LeftWheelButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.Mode(2));
+
+        private void RightWheelButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.Mode(3));
+
+        private void SpinLeftButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.Spin(1, (int)spinLeftNumericUpDown.Value));
+
+        private void SpinRightButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.Spin(2, (int)spinRightNumericUpDown.Value));
+        
         private void BackgroundImageButton(object sender, EventArgs e)
         {
             var button = (Button)sender;
