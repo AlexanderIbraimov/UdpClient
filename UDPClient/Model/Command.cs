@@ -36,7 +36,7 @@ namespace UDPClient.Model
         public static string PlayAudioOnce(string audioName) => $"PlayAudioOnce:{audioName}";
 
         public static string PlayAudioLoop(string audioName) => $"PlayAudioLoop:{audioName}";
-        //
+        
         public static string ZoomToModel() => "ZoomToModel";
 
         public static string ZoomToScreen() => "ZoomToScreen";
@@ -44,7 +44,7 @@ namespace UDPClient.Model
         public static string Mode(int n) => $"Mode{n}";
 
         public static string Spin(int n, int result) => $"Mode{n}:{result}";
-        //
+        
         public static string GameMode(string mode) => $"GameMode:{mode}";
     }
 }

@@ -19,6 +19,7 @@ namespace UDPClient
     {
         Dictionary<int, string> dictNameImage;
         Interaction interaction;
+        private string CurrentMode = "keno";
         public Window()
         {
             InitializeComponent();
@@ -49,8 +50,10 @@ namespace UDPClient
                 Controls.Add(tableLayoutPanel3);
                 Controls.Add(tableLayoutPanel4);
                 EnabledElement(Controls);
-                Controls.Remove(tableLayoutPanel3);
-                Controls.Remove(tableLayoutPanel4);
+                if (!hideAvatarButton.Enabled) 
+                    Controls.Remove(tableLayoutPanel4);
+                if(CurrentMode != "spinthewheel")
+                    Controls.Remove(tableLayoutPanel3);
             }
             else
             {
@@ -58,7 +61,7 @@ namespace UDPClient
                 portNumericUpDown.Value = 3333;
                 MessageBox.Show("IP address or host specified incorrectly");
             }
-
+            loadComboBox.Text = CurrentMode;
         }
         private void EnabledElement(Control.ControlCollection cc)
         {
@@ -90,8 +93,8 @@ namespace UDPClient
                     break;
                 default: break;
             }
+            CurrentMode = loadComboBox.Text;
         }
-
         private void TalkingButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.Talking());
 
         private void NewGameButtonClick(object sender, EventArgs e) => SendOrReceiveAnException(Command.NewGame());
