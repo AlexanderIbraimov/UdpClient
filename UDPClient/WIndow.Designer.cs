@@ -105,6 +105,7 @@ namespace UDPClient
             // ipLabel
             // 
             this.ipLabel.AutoSize = true;
+            this.ipLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.ipLabel.Location = new System.Drawing.Point(27, 32);
             this.ipLabel.Name = "ipLabel";
             this.ipLabel.Size = new System.Drawing.Size(75, 17);
@@ -114,6 +115,7 @@ namespace UDPClient
             // portLabel
             // 
             this.portLabel.AutoSize = true;
+            this.portLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.portLabel.Location = new System.Drawing.Point(27, 74);
             this.portLabel.Name = "portLabel";
             this.portLabel.Size = new System.Drawing.Size(34, 17);
@@ -681,7 +683,7 @@ namespace UDPClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(959, 563);
             this.Controls.Add(this.tableLayoutPanel4);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -705,7 +707,7 @@ namespace UDPClient
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Window";
-            this.Text = "WIndow";
+            this.Text = "Client";
             ((System.ComponentModel.ISupportInitialize)(this.portNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.positionXNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.positionYNumericUpDown)).EndInit();
