@@ -19,7 +19,7 @@ namespace UDPClient
     {
         Dictionary<int, string> dictNameImage;
         Interaction interaction;
-        private string CurrentMode = "keno";
+        private string CurrentMode = "Lucky6";
         public Window()
         {
             InitializeComponent();
@@ -52,7 +52,7 @@ namespace UDPClient
                 EnabledElement(Controls);
                 if (!hideAvatarButton.Enabled) 
                     Controls.Remove(tableLayoutPanel4);
-                if(CurrentMode != "spinthewheel")
+                if(CurrentMode != "SpinTheWheel")
                     Controls.Remove(tableLayoutPanel3);
             }
             else
@@ -79,15 +79,19 @@ namespace UDPClient
             SendOrReceiveAnException(Command.GameMode(loadComboBox.Text));
             switch (loadComboBox.Text)
             {
-                case "keno":
+                case "Lucky6":
                     Controls.Remove(tableLayoutPanel3);
                     Controls.Add(tableLayoutPanel1);
                     break;
-                case "lotto":
+                case "Keno":
                     Controls.Remove(tableLayoutPanel3);
                     Controls.Add(tableLayoutPanel1);
                     break;
-                case "spinthewheel":
+                case "Lotto":
+                    Controls.Remove(tableLayoutPanel3);
+                    Controls.Add(tableLayoutPanel1);
+                    break;
+                case "SpinTheWheel":
                     Controls.Remove(tableLayoutPanel1);
                     Controls.Add(tableLayoutPanel3);
                     break;

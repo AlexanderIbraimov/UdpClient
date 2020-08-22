@@ -296,15 +296,16 @@ namespace UDPClient
             this.loadComboBox.Enabled = false;
             this.loadComboBox.FormattingEnabled = true;
             this.loadComboBox.Items.AddRange(new object[] {
-            "keno",
-            "lotto",
-            "spinthewheel",
-            "video"});
+            "Lucky6",
+            "Keno",
+            "Lotto",
+            "SpinTheWheel",
+            "Video"});
             this.loadComboBox.Location = new System.Drawing.Point(230, 145);
             this.loadComboBox.Name = "loadComboBox";
             this.loadComboBox.Size = new System.Drawing.Size(170, 24);
             this.loadComboBox.TabIndex = 28;
-            this.loadComboBox.Text = "keno";
+            this.loadComboBox.Text = "Lucky6";
             // 
             // gameModeButton
             // 
@@ -425,7 +426,7 @@ namespace UDPClient
             this.numberBallNumericUpDown.Enabled = false;
             this.numberBallNumericUpDown.Location = new System.Drawing.Point(3, 3);
             this.numberBallNumericUpDown.Maximum = new decimal(new int[] {
-            100000,
+            99,
             0,
             0,
             0});

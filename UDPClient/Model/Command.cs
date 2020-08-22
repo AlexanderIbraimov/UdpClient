@@ -43,8 +43,8 @@ namespace UDPClient.Model
 
         public static string Mode(int n) => $"Mode{n}";
 
-        public static string Spin(int n, int result) => $"Mode{n}:{result}";
+        public static string Spin(int n, int result) => $"Spin{n}:{result}";
         
-        public static string GameMode(string mode) => $"GameMode:{mode}";
+        public static string GameMode(string mode) => $"{mode}";
     }
 }
